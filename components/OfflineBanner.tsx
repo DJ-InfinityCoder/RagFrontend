@@ -20,13 +20,17 @@ export function OfflineBanner() {
                 </span>
             </div>
             <button
-                onClick={checkHealth}
+                onClick={() => {
+                    window.open("https://djragbackend.onrender.com/", "_blank");
+                    checkHealth();
+                }}
                 disabled={isChecking}
                 className="px-3 py-1 bg-white/20 hover:bg-white/30 rounded-full text-sm font-medium transition-colors flex items-center gap-2"
             >
-                <RefreshCw className={cn("w-4 h-4", isChecking && "animate-spin")} />
-                {isChecking ? "Checking..." : "Retry"}
+            <RefreshCw className={cn("w-4 h-4", isChecking && "animate-spin")} />
+            {isChecking ? "Checking..." : "Retry"}
             </button>
+
         </div>
     );
 }
